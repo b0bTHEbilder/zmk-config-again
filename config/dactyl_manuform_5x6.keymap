@@ -1,6 +1,6 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
@@ -9,66 +9,68 @@
 #define ADJ 3
 #define SPLIT_WATCHDOG_ENABLE
 
-
-
 / {
+    macros {
+        change_language: change_language {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN &kt SPACE &kt SPACE &kt HOME>;
+            label = "CHANGE_LANGUAGE";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &none &kp N1 &kp N2 &kp N3 &kp N4 &kp N5              &kp N6 &kp N7 &kp N8    &kp N9  &kp N0   &none
-                
-                &none &kp Q  &kp W  &kp F  &kp P  &kp G               &kp J  &kp L  &kp U     &kp Y   &kp SEMI &none
-                
-                &none &mt HOME A  &mt LALT R  &mt LCTRL S  &mt LSHIFT T  &kp D               &kp H  &mt RSHIFT N  &mt RCTRL E     &mt RALT I   &mt HOME O    &none
-                
-                &none &kp Z  &kp X  &kp C  &kp V  &kp B               &kp K  &kp M  &kp COMMA &kp DOT &kp FSLH &none
-                                 
-                                 &kp LBKT &kp RBKT                                      &kp PLUS &kp EQUAL
-                                            
-                                            &mo LWR  &kp RETURN            &kp SPACE  &mo RSE
-                                            &none   &kp ESC             &none   &none
-                                            &none  &kp             &none  &none
+&none             &kp N1      &kp N2          &kp N3           &kp N4        &kp N5                      &kp N6     &kp N7        &kp N8       &kp N9      &kp N0      &none
+&none             &kp Q       &kp W           &kp F            &kp P         &kp G                       &kp J      &kp L         &kp U        &kp Y       &kp SEMI    &none
+&none             &mt LWIN A  &mt LALT R      &mt LCTRL S      &mt LSHIFT T  &kp D                       &kp H      &mt RSHIFT N  &mt RCTRL E  &mt RALT I  &mt LWIN O  &none
+&change_language  &kp Z       &kp X           &kp C            &kp V         &kp B                       &kp K      &kp M         &kp COMMA    &kp DOT     &kp FSLH    &none
+                              &kp LEFT_BRACE  &kp RIGHT_BRACE                                                                     &kp LPAR     &kp RPAR
+                                                               &mo LWR       &kp RETURN                  &kp SPACE  &mo RSE
+                                                                             &none       &kp ESC  &none  &none
+                                                                             &none       &none    &none  &none
             >;
         };
 
         lower_layer {
             bindings = <
-                &kp F12 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                &kp F6 &kp F7   &kp F8   &kp F9 &kp F10   &kp F11
-                &trans  &trans &trans &trans &trans &trans                &trans &trans   &trans   &trans &trans    &trans
-                &trans  &trans &trans &trans &trans &trans                &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans
-                &trans  &trans &trans &trans &trans &trans                &trans &trans   &trans   &trans &trans    &trans
-                               &trans &trans                                              &trans &trans
-                                             &trans &trans                &trans &mo ADJ
-                                             &trans &trans                &trans &trans
-                                             &trans &trans                &trans &trans
+&kp F12  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                  &kp F6  &kp F7    &kp F8    &kp F9  &kp F10    &kp F11
+&trans   &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &trans    &trans  &trans     &trans
+&trans   &trans  &trans  &trans  &trans  &trans                  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans
+&trans   &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &trans    &trans  &trans     &trans
+                 &trans  &trans                                                    &trans    &trans
+                                 &trans  &trans                  &trans  &mo ADJ
+                                         &trans  &trans  &trans  &trans
+                                         &trans  &trans  &trans  &trans
             >;
         };
 
         raise_layer {
             bindings = <
-                &kp F12 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                &kp F6 &kp F7   &kp F8   &kp F9 &kp F10   &kp F11
-                &trans  &trans &trans &trans &trans &trans                &trans &trans   &kp LNLCK &kp INS &kp SLCK &kp K_MUTE
-                &trans  &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp LBKT       &kp RBKT &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp K_VOL_UP
-                &trans  &trans &trans &trans &trans &trans                &trans &trans &trans &trans &trans &kp K_VOL_DN
-                               &trans &trans                                            &trans &trans
-                                             &mo ADJ &trans               &trans &trans
-                                             &trans  &trans               &trans &trans
-                                             &trans  &trans               &trans &trans
+&kp F12  &kp F1    &kp F2    &kp F3  &kp F4     &kp F5                    &kp F6    &kp F7    &kp F8            &kp F9             &kp F10    &kp F11
+&trans   &trans    &trans    &trans  &trans     &trans                    &trans    &trans    &kp LNLCK         &kp INS            &kp SLCK   &kp K_MUTE
+&trans   &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp LBKT                  &kp RBKT  &kp LEFT  &kp DOWN          &kp UP             &kp RIGHT  &kp K_VOL_UP
+&trans   &trans    &trans    &trans  &trans     &trans                    &trans    &trans    &trans            &trans             &trans     &kp K_VOL_DN
+                   &trans    &trans                                                           &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+                                     &mo ADJ    &trans                    &trans    &trans
+                                                &trans    &trans  &trans  &trans
+                                                &trans    &trans  &trans  &trans
             >;
         };
 
         adjust_layer {
             bindings = <
-                &none &bt BT_SEL 0 &out OUT_BLE &none &none &none         &none &none &none &none &none &none
-                &none &bt BT_SEL 1 &out OUT_USB &none &none &none         &none &none &none &none &none &none
-                &none &bt BT_SEL 2 &none        &none &none &none         &none &none &none &none &none &none
-                &none &bt BT_SEL 3 &bt BT_CLR   &none &none &none         &none &none &none &none &none &none
-                                   &none        &none                                 &none &none
-                                                      &none &none             &none &none
-                                                      &none &none             &none &none
-                                                      &none &none             &none &none
+&none   &bt BT_SEL 0  &out OUT_BLE  &none  &none  &none                &none  &none  &none  &none  &none  &none
+&none   &bt BT_SEL 1  &out OUT_USB  &none  &none  &none                &none  &none  &none  &none  &none  &none
+&none   &bt BT_SEL 2  &none         &none  &none  &none                &none  &none  &none  &none  &none  &none
+&trans  &bt BT_SEL 3  &bt BT_CLR    &none  &none  &none                &none  &none  &none  &none  &none  &none
+                      &none         &none                                            &none  &none
+                                           &none  &none                &none  &none
+                                                  &none  &none  &none  &none
+                                                  &none  &none  &none  &none
             >;
         };
     };
