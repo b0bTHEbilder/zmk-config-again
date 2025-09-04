@@ -14,7 +14,10 @@
         change_language: change_language {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kt LWIN &kt SPACE &kt SPACE &kt HOME>;
+            bindings = 
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp SPACE>,
+                <&macro_release &kl LWIN>
             label = "CHANGE_LANGUAGE";
         };
     };
