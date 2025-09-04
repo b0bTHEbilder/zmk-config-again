@@ -17,7 +17,7 @@
             bindings = 
                 <&macro_press &kp LWIN>,
                 <&macro_tap &kp SPACE>,
-                <&macro_release &kl LWIN>
+                <&macro_release &kp LWIN>
             label = "CHANGE_LANGUAGE";
         };
     };
