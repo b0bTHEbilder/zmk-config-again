@@ -19,9 +19,11 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = < 6 7 8 9 0 J L U Y SEMI H N E I O K M COMMA DOT FSLH LPAR RPAR >; // List of keys on the right side of the keyboard
+
+            hold-trigger-key-positions = <6 7 8 9 J L U Y SEMI H N E I O K M COMMA DOT FSLH LPAR RPAR 10 11 20 18 30 42 43 44 45 46 47 51 50 31 19 32 33 21 22 34 35 23>; // List of keys on the right side of the keyboard
             hold-trigger-on-release;
         };
+
         hmr: home_row_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -30,7 +32,8 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = < 1 2 3 4 5 6 Q W F P G A R S T D Z X C V B LEFT_BRACE RIGHT_BRACE>; // List of keys on the left side of the keyboard
+
+            hold-trigger-key-positions = <1 2 3 4 5 Q W F P G A R S T D Z X C V B LEFT_BRACE RIGHT_BRACE 0 12 24 36 37 39 38 40 41 49 48 13 25 26 14 15 27 16 28 17 29>; // List of keys on the left side of the keyboard
             hold-trigger-on-release;
         };
     };
@@ -39,10 +42,14 @@
         change_language: change_language {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
-                <&macro_press &kp LWIN>,
-                <&macro_tap &kp SPACE>,
-                <&macro_release &kp LWIN>;
+            bindings =
+                <&macro_press>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LWIN>;
+
             label = "CHANGE_LANGUAGE";
         };
     };
