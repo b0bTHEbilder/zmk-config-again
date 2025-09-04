@@ -10,6 +10,31 @@
 #define SPLIT_WATCHDOG_ENABLE
 
 / {
+    behaviors {
+        hml: home_row_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = < 6 7 8 9 0 J L U Y SEMI H N E I O K M COMMA DOT FSLH LPAR RPAR >; // List of keys on the right side of the keyboard
+            hold-trigger-on-release;
+        };
+        hmr: home_row_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = < 1 2 3 4 5 6 Q W F P G A R S T D Z X C V B LEFT_BRACE RIGHT_BRACE>; // List of keys on the left side of the keyboard
+            hold-trigger-on-release;
+        };
+    };
+
     macros {
         change_language: change_language {
             compatible = "zmk,behavior-macro";
@@ -17,7 +42,7 @@
             bindings = 
                 <&macro_press &kp LWIN>,
                 <&macro_tap &kp SPACE>,
-                <&macro_release &kp LWIN>
+                <&macro_release &kp LWIN>;
             label = "CHANGE_LANGUAGE";
         };
     };
