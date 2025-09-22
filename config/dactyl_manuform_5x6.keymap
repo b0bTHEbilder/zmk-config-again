@@ -81,7 +81,7 @@
 &none             &kp A   &kp R           &kp S            &kp T   &kp D                                         &kp H           &kp N    &kp E           &kp I            &kp O     &none
 &change_language  &kp Z   &kp X           &kp C            &kp V   &kp B                                         &kp K           &kp M    &kp COMMA       &kp DOT          &kp FSLH  &none
                           &kp LEFT_BRACE  &kp RIGHT_BRACE                                                                                 &kp LEFT_BRACE  &kp RIGHT_BRACE
-                                                           &mo 1   &kp LS(BACKSPACE)                             &kp SPACE       &mo RSE
+                                                           &mo 1   &kp LC(BACKSPACE)                             &kp SPACE       &mo RSE
                                                                    &test_behaviour LSHIFT Z  &kp ESC  &kp ENTER  &kp LEFT_SHIFT
                                                                    &none                     &none    &none      &none
             >;
